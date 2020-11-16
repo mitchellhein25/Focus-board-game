@@ -239,7 +239,7 @@ class FocusGame:
 
         board = self.get_board()
 
-        return board[column_num][row_num]
+        return board[row_num][column_num]
 
 
     def show_reserve(self, player_name):
