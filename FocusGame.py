@@ -239,7 +239,7 @@ class FocusGame:
 
         board = self.get_board()
 
-        return board[row_num][column_num]
+        return board[column_num][row_num]
 
 
     def show_reserve(self, player_name):
@@ -300,12 +300,12 @@ class FocusGame:
         return 'successfully moved'
 
 # #
-# fg = FocusGame(("Mitch", "R"), ("Hannah", "W"))
-# fg.print_board()
-# print(fg.move_piece("Mitch", (0,0), (0,1), 1))
-# fg.print_board()
-# print(fg.show_pieces((0,1)))
-# print(fg.show_pieces((0,0)))
+# game = FocusGame(('PlayerA', 'R'), ('PlayerB','G'))
+# print(game.move_piece('PlayerA',(0,0), (0,1), 1))  #Returns message "successfully moved"
+# print(game.show_pieces((0,1))) #Returns ['R','R']
+# print(game.show_captured('PlayerA')) # Returns 0
+# print(game.reserved_move('PlayerA', (0,0))) # Returns message "No pieces in reserve"
+# print(game.show_reserve('PlayerA')) # Returns 0
 # fg.print_board()
 # print(fg.show_pieces((0,1)))
 # print(fg.move_piece("Hannah", (0,2), (0,1), 1))
