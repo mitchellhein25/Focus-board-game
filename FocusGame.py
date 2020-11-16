@@ -204,9 +204,9 @@ class FocusGame:
         if top_start != player.get_player_color():
             return 'invalid location'
 
-        end_location = self.get_board()[end_coord[1]][end_coord[0]]
+        end_location = self.get_board()[end_coord[0]][end_coord[1]]
 
-        start_location = self.get_board()[start_coord[1]][start_coord[0]]
+        start_location = self.get_board()[start_coord[0]][start_coord[1]]
 
         #Execute the move with the helper method
         self.move_execution(num_pieces, end_location, start_location, start_pieces)
@@ -239,7 +239,7 @@ class FocusGame:
 
         board = self.get_board()
 
-        return board[row_num][column_num]
+        return board[column_num][row_num]
 
 
     def show_reserve(self, player_name):
