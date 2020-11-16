@@ -300,12 +300,12 @@ class FocusGame:
         return 'successfully moved'
 
 # #
-fg = FocusGame(("Mitch", "R"), ("Hannah", "W"))
-fg.print_board()
-print(fg.move_piece("Mitch", (0,0), (0,1), 1))
-fg.print_board()
-print(fg.show_pieces((0,1)))
-print(fg.show_pieces((0,0)))
+# fg = FocusGame(("Mitch", "R"), ("Hannah", "W"))
+# fg.print_board()
+# print(fg.move_piece("Mitch", (0,0), (0,1), 1))
+# fg.print_board()
+# print(fg.show_pieces((0,1)))
+# print(fg.show_pieces((0,0)))
 # fg.print_board()
 # print(fg.show_pieces((0,1)))
 # print(fg.move_piece("Hannah", (0,2), (0,1), 1))
