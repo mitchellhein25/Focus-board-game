@@ -114,33 +114,33 @@ class FocusGame:
 
         #If someone has already won
         if self.get_current_turn() == "Game is over.":
-            return "Game is over."
+            return False
 
         # Make sure it is the currect players turn
         if self.get_current_turn() != player:
-            return 'not your turn'
+            return False
 
         # if the player provides invalid locations (source or destination), return 'invalid location'
 
         #if the start and end location are the same
         if start_coord == end_coord:
-            return 'invalid location'
+            return False
 
         # if the they are trying to move more spots than their number of pieces allows
         if start_coord[0] - end_coord[0] > num_pieces or start_coord[0] - end_coord[0] < -1*num_pieces:
-            return 'invalid location'
+            return False
         if start_coord[1] - end_coord[1] > num_pieces or start_coord[1] - end_coord[1] < -1*num_pieces:
-            return 'invalid location'
+            return False
 
         #If they are trying to make a diagonal move
         if start_coord[1] - end_coord[1] == num_pieces and start_coord[0] - end_coord[0] == num_pieces:
-            return 'invalid location'
+            return False
         if start_coord[1] - end_coord[1] == -1*num_pieces and start_coord[0] - end_coord[0] == -1*num_pieces:
-            return 'invalid location'
+            return False
         if start_coord[1] - end_coord[1] == -1*num_pieces and start_coord[0] - end_coord[0] == num_pieces:
-            return 'invalid location'
+            return False
         if start_coord[1] - end_coord[1] == num_pieces and start_coord[0] - end_coord[0] == -1*num_pieces:
-            return 'invalid location'
+            return False
 
     def greater_than_five(self, location, size, player):
         """Assisting method to make_move. Adds the bottom pieces to the reserve or captured of the moving player"""
@@ -199,10 +199,10 @@ class FocusGame:
 
         #Make sure the player's piece is on top of stack
         if start_pieces == []:
-            return 'invalid number of pieces'
+            return False
         top_start = start_pieces[len(start_pieces) - 1] #last piece in start_coord list
         if top_start != player.get_player_color():
-            return 'invalid location'
+            return False
 
         end_location = self.get_board()[end_coord[0]][end_coord[1]]
 
@@ -266,14 +266,14 @@ class FocusGame:
         reserves = player.get_player_reserve()
 
         if reserves == 0:
-            return 'no pieces in reserve'
+            return False
 
         if self.get_current_turn() == "Game is over.":
-            return "Game is over."
+            return False
 
         # Make sure it is the currect players turn
         if self.get_current_turn() != player:
-            return 'not your turn'
+            return False
 
         board = self.get_board()
         location = board[location[0]][location[1]]
@@ -306,7 +306,8 @@ class FocusGame:
 # print(game.show_captured('PlayerA')) # Returns 0
 # print(game.reserved_move('PlayerA', (0,0))) # Returns message "No pieces in reserve"
 # print(game.show_reserve('PlayerA')) # Returns 0
-# fg.print_board()
+# print(game.move_piece('PlayerB',(1,0), (2,0), 1))  #Returns message "successfully moved"
+# game.print_board()
 # print(fg.show_pieces((0,1)))
 # print(fg.move_piece("Hannah", (0,2), (0,1), 1))
 # fg.print_board()
